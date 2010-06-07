@@ -63,6 +63,8 @@ public class Importer {
         cfg.setReverseEngineeringStrategy(reverseEngineeringStrategy);
 
         cfg.setProperty("hibernate.hbm2ddl.auto", "create");
+	
+	cfg.setProperty("hibernate.default_schema", Play.configuration.getProperty("db.schema"));	
 
         final String dialect = Play.configuration.getProperty("jpa.dialect");
         if (dialect != null)
